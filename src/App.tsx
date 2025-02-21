@@ -30,15 +30,37 @@ interface ResumeData {
 
 const initialResumeData: ResumeData = {
   personalInfo: {
-    name: '',
-    email: '',
-    phone: '',
-    location: ''
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    phone: '(555) 123-4567',
+    location: 'San Francisco, CA'
   },
-  professionalSummary: '',
-  experience: [],
-  education: [],
-  skills: []
+  professionalSummary: 'Experienced software engineer with 5+ years of expertise in full-stack development, specializing in React, Node.js, and cloud technologies. Proven track record of delivering scalable solutions and leading development teams.',
+  experience: [
+    {
+      company: 'Tech Solutions Inc.',
+      position: 'Senior Software Engineer',
+      startDate: 'Jan 2020',
+      endDate: 'Present',
+      description: 'Led development of enterprise-scale applications, mentored junior developers, and implemented CI/CD pipelines resulting in 40% faster deployment times.'
+    },
+    {
+      company: 'Digital Innovations Ltd.',
+      position: 'Software Engineer',
+      startDate: 'Jun 2018',
+      endDate: 'Dec 2019',
+      description: 'Developed and maintained multiple client-facing web applications using React and TypeScript. Improved application performance by 60%.'
+    }
+  ],
+  education: [
+    {
+      school: 'University of Technology',
+      degree: 'Bachelor of Science',
+      field: 'Computer Science',
+      graduationDate: 'May 2018'
+    }
+  ],
+  skills: ['React', 'TypeScript', 'Node.js', 'AWS', 'Docker', 'CI/CD', 'Agile Methodologies', 'Team Leadership']
 };
 
 function App() {
@@ -332,10 +354,10 @@ function App() {
         <div className="preview-panel">
           <div className="resume-preview">
             <h1 className="text-4xl font-bold mb-4">{resumeData.personalInfo.name || 'Your Name'}</h1>
-            <div className="contact-info mb-6 text-gray-600">
-              {resumeData.personalInfo.email && <p className="inline-flex items-center gap-2"><span className="text-primary">✉</span>{resumeData.personalInfo.email}</p>}
-              {resumeData.personalInfo.phone && <p className="inline-flex items-center gap-2"><span className="text-primary">📱</span>{resumeData.personalInfo.phone}</p>}
-              {resumeData.personalInfo.location && <p className="inline-flex items-center gap-2"><span className="text-primary">📍</span>{resumeData.personalInfo.location}</p>}
+            <div className="contact-info mb-6 text-gray-600 flex flex-wrap gap-4">
+              {resumeData.personalInfo.email && <p className="inline-flex items-center gap-2 min-w-[200px]"><span className="text-primary">✉</span>{resumeData.personalInfo.email}</p>}
+              {resumeData.personalInfo.phone && <p className="inline-flex items-center gap-2 min-w-[200px]"><span className="text-primary">📱</span>{resumeData.personalInfo.phone}</p>}
+              {resumeData.personalInfo.location && <p className="inline-flex items-center gap-2 min-w-[200px]"><span className="text-primary">📍</span>{resumeData.personalInfo.location}</p>}
             </div>
 
             {resumeData.professionalSummary && (
